@@ -51,7 +51,7 @@ const Login = () => {
   return (
     <div className={`container my-5 d-flex justify-content-center align-items-center ${darkMode ? 'text-light bg-dark' : 'text-dark bg-light'}`} style={{ minHeight: '80vh' }}>
       <div className="col-md-8 col-lg-6 col-xl-5 p-5 shadow rounded">
-        <h1 className="">Login</h1>
+        <h1 className={`display-4 mb-4 text-center ${darkMode ? 'text-light' : 'text-dark'}`}>Login</h1>
         <form onSubmit={handleSubmit} className="w-100">
           <div className="form-group mb-4">
             <label htmlFor="email" className={darkMode ? 'text-light' : 'text-dark'}>Email</label>
@@ -86,10 +86,9 @@ const Login = () => {
         <hr className={`my-4 ${darkMode ? 'border-light' : 'border-dark'}`} />
         <p className={`text-center mb-0 ${darkMode ? 'text-light' : 'text-dark'}`}>
           Don't have an account?{' '}
-          <Link to="/register" className='text-2xl '>
+          <Link to="/register" className={darkMode ? 'text-light' : 'text-primary'}>
             Register here
           </Link>
-  
         </p>
       </div>
     </div>

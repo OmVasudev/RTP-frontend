@@ -1,28 +1,33 @@
-import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/authContext';
-import DarkModeButton from './DarkModeButton/DarkModeButton.jsx';
-import { useSupplier } from '../context/supplierContext.jsx';
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/authContext";
+import DarkModeButton from "./DarkModeButton/DarkModeButton.jsx";
+import { useSupplier } from "../context/supplierContext.jsx";
 
 const Navbar = () => {
   const { auth, setAuth } = useAuth();
-  const {darkMode} = useSupplier();
+  const { darkMode } = useSupplier();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('auth');
+    localStorage.removeItem("auth");
     setAuth({
       user: null,
       token: null,
     });
-    navigate('/');
+    navigate("/");
   };
 
   return (
-    <nav className={`navbar navbar-expand-lg ${darkMode ? 'bg-dark' : 'bg-light'}`}>
+    <nav
+      className={`navbar navbar-expand-lg ${darkMode ? "bg-dark" : "bg-light"}`}
+    >
       <div className="container-fluid">
-        <NavLink className={`navbar-brand ${darkMode ? 'text-light' : 'text-dark'}`} to="/">
-          RealTimeEdify
+        <NavLink
+          className={`navbar-brand ${darkMode ? "text-light" : "text-dark"}`}
+          to="/"
+        >
+          Tech Elites
         </NavLink>
         <button
           className="navbar-toggler"
@@ -39,14 +44,14 @@ const Navbar = () => {
           <ul className="navbar-nav ms-auto">
             {auth.user ? (
               <>
-              <li className="nav-item">
+                <li className="nav-item">
                   <DarkModeButton />
                 </li>
-              <li className="nav-item">
-                <button className="btn btn-danger" onClick={handleLogout}>
-                  Logout
-                </button>
-              </li>
+                <li className="nav-item">
+                  <button className="btn btn-danger" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </li>
               </>
             ) : (
               <>
@@ -55,7 +60,9 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    className={`nav-link ${darkMode ? 'text-light' : 'text-dark'}`}
+                    className={`nav-link ${
+                      darkMode ? "text-light" : "text-dark"
+                    }`}
                     to="/"
                     activeclassname="active"
                   >
@@ -64,7 +71,9 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <NavLink
-                    className={`nav-link ${darkMode ? 'text-light' : 'text-dark'}`}
+                    className={`nav-link ${
+                      darkMode ? "text-light" : "text-dark"
+                    }`}
                     to="/register"
                     activeclassname="active"
                   >
